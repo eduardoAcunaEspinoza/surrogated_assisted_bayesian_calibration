@@ -1,0 +1,50 @@
+/----------------------------------------------------------------------
+/ GAIA
+/----------------------------------------------------------------------
+GEOMETRY FILE = 'geo_banja.slf'
+BOUNDARY CONDITIONS FILE = 'bc_steady_tel.cli'
+RESULTS FILE='res_gaia_PC203.slf'
+TITLE = 'Banja_Sediments'
+
+/----------------------------------------------------------------------
+/ OUTPUT
+/----------------------------------------------------------------------
+VARIABLES FOR GRAPHIC PRINTOUTS ='E,B'
+
+/-----------------------------------------------------------------------
+/ NUMERICAL PARAMETERS
+/-----------------------------------------------------------------------
+SCHEME FOR ADVECTION OF SUSPENDED SEDIMENTS = 14
+MASS-BALANCE = YES
+
+/---------------------------------------------------------------------
+/ SUSPENSION
+/---------------------------------------------------------------------
+MAXIMUM NUMBER OF ITERATIONS FOR SOLVER FOR SUSPENSION = 200
+
+/---------------------------------------------------------------------
+/ TRANSPORT
+/---------------------------------------------------------------------
+SUSPENSION FOR ALL SANDS                 = YES
+
+/-----------------------------------------------------------------------
+/ SURFACE BED PARAMETERS
+/-----------------------------------------------------------------------
+ACTIVE LAYER THICKNESS = 0.005
+LAYERS INITIAL THICKNESS = 0.1
+SKIN FRICTION CORRECTION = 0
+
+/-----------------------------------------------------------------------
+/ SEDIMENT CHARACTERISTICS
+/-----------------------------------------------------------------------
+CLASSES TYPE OF SEDIMENT = NCO;CO;CO;CO
+CLASSES SEDIMENT DIAMETERS = 1.000E-3; 2.019E-5; 7.151E-6; 1.935E-6
+CLASSES SEDIMENT DENSITY = 2650;2650;2650;2650
+CLASSES SETTLING VELOCITIES = -9; 3.651E-4; 4.580E-5; 3.353E-6
+
+CLASSES INITIAL FRACTION = 1.0;0.0;0.0;0.0
+CLASSES CRITICAL SHEAR STRESS FOR MUD DEPOSITION =
+0.017; 0.017; 0.017; 0.017
+LAYERS PARTHENIADES CONSTANT = 1.E-2
+LAYERS CRITICAL EROSION SHEAR STRESS OF THE MUD = 0.391; 0.391
+LAYERS MUD CONCENTRATION = 417.0; 417.0

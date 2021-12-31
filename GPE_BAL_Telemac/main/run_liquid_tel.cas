@@ -1,0 +1,79 @@
+/----------------------------------------------------------------------
+/                         COUPLING
+/----------------------------------------------------------------------
+COUPLING WITH = 'GAIA'
+GAIA STEERING FILE = 'run_liquid_gaia.cas'
+
+/---------------------------------------------------------------------
+/ General Information
+/---------------------------------------------------------------------
+TIME STEP = 50
+VARIABLE TIME-STEP = YES
+DESIRED COURANT NUMBER = 0.5
+DURATION = 96681621
+PARALLEL PROCESSORS = 12
+
+/---------------------------------------------------------------------
+/ INPUT-OUTPUT, FILES
+/---------------------------------------------------------------------
+/COMPUTATION CONTINUED =YES
+/INITIAL TIME SET TO ZERO          = YES
+/PREVIOUS COMPUTATION FILE         = 'hotstart.slf'
+GEOMETRY FILE = 'geo_banja.slf'
+BOUNDARY CONDITIONS FILE = 'bc_steady_tel.cli'
+RESULTS FILE='res_tel_PC203.slf'
+LIQUID BOUNDARIES FILE = 'bc_liquid.liq'
+
+/---------------------------------------------------------------------
+/ INPUT-OUTPUT, GRAPHICS AND LISTING
+/---------------------------------------------------------------------
+INFORMATION ABOUT SOLVER = YES
+LISTING PRINTOUT PERIOD = 5000
+GRAPHIC PRINTOUT PERIOD = 20000
+VARIABLES FOR GRAPHIC PRINTOUTS ='U,V,B,H,S,Q,I,J'
+MASS-BALANCE = YES /Get information on the mass fluxes in the domain at each printed time step
+
+/---------------------------------------------------------------------
+/ BOUNDARY CONDITIONS, Initial Conditions
+/---------------------------------------------------------------------
+VELOCITY PROFILES = 1;1;1;1;1 
+TREATMENT OF FLUXES AT THE BOUNDARIES=2;2;2;2;2
+INITIAL ELEVATION = 169.75
+INITIAL CONDITIONS = 'CONSTANT ELEVATION'
+
+/---------------------------------------------------------------------
+/ Physical parameters
+/---------------------------------------------------------------------
+FRICTION COEFFICIENT = 0.032
+LAW OF BOTTOM FRICTION = 4  /Manning
+TURBULENCE MODEL = 5 /mixing length
+VELOCITY DIFFUSIVITY = 1
+
+/---------------------------------------------------------------------
+/ Numerical Parameters
+/---------------------------------------------------------------------
+TREATMENT OF THE LINEAR SYSTEM = 2 /Wave Equation, it is recommended 
+SCHEME FOR ADVECTION OF VELOCITIES = 1 /Recommended with tidal flats
+SCHEME FOR ADVECTION OF TRACERS = 14
+PRECONDITIONING          =2
+
+TIDAL FLATS = YES
+OPTION FOR THE TREATMENT OF TIDAL FLATS = 1 /recommended, and allows parallel computation
+TREATMENT OF NEGATIVE DEPTHS = 2
+MASS-LUMPING ON H = 1 /Makes the matrix diagonal to solve faster, but smoothed the results
+CONTINUITY CORRECTION = YES / help resolve continuity problem in boundary cond. Mandatory with treatment of negative depths =2 or 3
+SUPG OPTION =0;0 /Recommended
+FREE SURFACE GRADIENT COMPATIBILITY = 0 /recommended for models with tidal flats and steep bottom topography gradients
+THRESHOLD DEPTH FOR RECEDING PROCEDURE=0.05
+/---------------------------------------------------------------------
+/ NUMERICAL PARAMETERS, SOLVER
+/---------------------------------------------------------------------
+SOLVER = 1
+SOLVER ACCURACY = 1.E-4 
+MAXIMUM NUMBER OF ITERATIONS FOR SOLVER =1000
+
+/---------------------------------------------------------------------
+/ NUMERICAL PARAMETERS, VELOCITY-CELERITY-HIGHT
+/---------------------------------------------------------------------
+IMPLICITATION FOR DEPTH    =1 /To account for semi-implicit time discretization. When using wave equation 1 is recommended
+IMPLICITATION FOR VELOCITY =1
