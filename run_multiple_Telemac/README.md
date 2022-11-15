@@ -2,7 +2,13 @@
 
 Run multiple hydro-morphodynamic simulations of Telemac-2d, using a list of parameter combinations. The code is specific to the parameters that wanted to be changed at the time, but it can be used as the base to run other specific numerical configurations.
 
-To run the code, run the run_multiple_telemac.py file using the main folder as a current directory from a console/terminal in which Telemac and GAIA have already been compiled. It is not recommended to run the code from PyCharm as PyCharm uses a kind of additional virtual environment when it fires up its Terminal, and because Telemac has its own environment and APIs, those might be conflicting with PyCharm. 
+To run the code, run the run_multiple_telemac.py file using the main folder as a current directory from a console/terminal in which Telemac and GAIA have already been compiled. It is not recommended running the code from PyCharm as PyCharm uses a kind of additional virtual environment when it fires up its Terminal, and because Telemac has its own environment and APIs, those might be conflicting with PyCharm. 
+
+## Libraries
+
+*Python* libraries:  *numpy*, *selafin_io_pp (Telemac, ppmodules)*
+
+*Standard* libraries: *datetime*, *math*, *os*, *shutil*, *subprocess*, *sys*
 
 ## File structure 
 - main: 
@@ -15,7 +21,7 @@ To run the code, run the run_multiple_telemac.py file using the main folder as a
 	  - bc_steady_tel.cli: File that defines the type and location of the boundary conditions.
 	  - geo_banda.slf: File that defines the mesh structure for the hydro-morphodynamic model. 
 	  - run_liquid_gaia.cas: Numerical configuration of the sediment transport model.
-	  - run_liquid_tel.cas: Numerical configuretion of the hydrodynamic model. 
+	  - run_liquid_tel.cas: Numerical configuration of the hydrodynamic model. 
 
 - simulations: After each simulation is completed, the simulation files will be stored in this folder. 
 

@@ -1,8 +1,15 @@
 ## Introduction
 
-The two main functions work independently from each other. Both functions make a Stochastic calibration of a model using Surrogate-Assisted Bayesian inversion. The difference between them is the technique used to create the surrogate model. 
+The two main functions work independently of each other. Both functions make a Stochastic calibration of a model using Surrogate-Assisted Bayesian inversion. The difference between them is the technique used to create the surrogate model. 
 
 In both cases, the model that is being calibrated is an analytical function, which is described in the file physical_model.py. The use of an analytical function has two main purposes. First, explain how the calibration method works using a fast-simple model. Second, we will be able to evaluate the calibration quality by comparing the surrogate-assisted calibration results with a Monte Carlo reference solution because we can run the analytical model thousands of times. In a  real case, this analytical function will be substituted by a full complexity model (see folder GPE_BAL_Telemac), and a reference solution cannot be computed. 
+
+## Libraries
+
+*Python* libraries:  *numpy*, *matplotlib*, *scikit-learn*
+
+*Standard* libraries: *math*, *os*, *sys*
+
 ## File structure
 - main_BAL_aPCE = The surrogate model is created using the arbitrary polynomial chaos expansion technique proposed by [Oladyshkin, S., & Nowak, W. (2012)](https://doi.org/10.1016/j.ress.2012.05.002). 
 - main_BAL_GP = The surrogate model is created using the Gaussian Process package of [scikit-learn](https://scikit-learn.org/stable/modules/gaussian_process.html). 

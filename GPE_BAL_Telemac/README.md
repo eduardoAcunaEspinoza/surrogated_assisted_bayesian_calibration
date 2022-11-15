@@ -3,6 +3,12 @@ Stochastic calibration of a Telemac2d hydro-morphodynamic model using  Surrogate
 
 To run the code, run the main_GPE_BAL_telemac.py file using the main folder as a current directory from a console/terminal in which Telemac and GAIA have already been compiled. It is not recommended to run the code from PyCharm as PyCharm uses a kind of additional virtual environment when it fires up its Terminal, and because Telemac has its own environment and APIs, those might be conflicting with PyCharm. 
 
+## Libraries
+
+*Python* libraries:  *numpy*, *scikit-learn*, *selafin_io_pp (Telemac, ppmodules)*
+
+*Standard* libraries: *datetime*, *math*, *os*, *shutil*, *subprocess*, *sys*
+
 ## File structure
 
 - main: 
@@ -26,6 +32,6 @@ To run the code, run the main_GPE_BAL_telemac.py file using the main folder as a
 - external_libraries: The library pputils-master by Pat Prodanovic (https://github.com/pprodano/pputils) is used to extract the results of the simulation file (.slf) into a .txt file, which is then stored in the results Folder.
 
 - scripts:
-  - auxiliary_fuctions_BAL: Auxiliary functions for the stochastic calibration of model using Surrogate-Assisted Bayesian inversion
+  - auxiliary_functions_BAL: Auxiliary functions for the stochastic calibration of model using Surrogate-Assisted Bayesian inversion
   - auxiliary_functions_telemac: Contains auxiliary functions used to modify the input and output of the telemac files. These functions are specific to the parameters that wanted to be changed at the time, but they can be used as a base on how to modify Telemac's input and output files
   - init.py: Reference other folders.
